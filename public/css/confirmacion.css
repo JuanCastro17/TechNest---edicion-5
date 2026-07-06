@@ -1,0 +1,51 @@
+body { background-color: #f5f5f5; }
+
+.confirmacion-container {
+    max-width: 600px;
+    margin: 50px auto;
+    text-align: center;
+    padding: 20px;
+}
+
+.ticket-pago {
+    background: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 30px;
+}
+
+.ticket-header {
+    background-color: #2d6f73;
+    padding: 20px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.ticket-header h1 { font-size: 24px; margin: 0; color: white; }
+
+.ticket-body { padding: 30px 20px; border-bottom: 1px solid #e0e0e0; }
+.ticket-body h2 { font-size: 22px; color: #000; margin-top: 15px; line-height: 1.4; }
+
+.ticket-datos {
+    display: flex;
+    justify-content: space-around;
+    padding: 30px 20px;
+    background-color: #fafafa;
+}
+
+.dato-grupo span { display: block; color: #666; margin-bottom: 5px; }
+.dato-grupo strong { font-size: 20px; color: #333; }
+
+.ticket-footer { padding: 20px; color: #777; font-size: 13px; line-height: 1.6; }
+
+.btn-volver-inicio {
+    display: inline-block;
+    background-color: #ffcc00;
+    color: #333;
+    padding: 12px 30px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+}
+

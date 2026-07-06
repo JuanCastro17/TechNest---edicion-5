@@ -1,0 +1,253 @@
+/* ==========================================================================
+   ESTILOS GENERALES (PC Y VISTA BASE)
+   ========================================================================== */
+body { 
+    background-color: #e2e9ee; 
+}
+
+.carrito-container {
+    max-width: 1000px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+.seleccion-todos {
+    background: white;
+    padding: 15px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* CORREGIDO: En PC los productos se ordenarán en una lista vertical limpia */
+.productos-grid {
+    display: flex;
+    flex-direction: column; /* Cambiado a columna para evitar scroll horizontal infinito */
+    gap: 15px;
+    padding-bottom: 20px;
+}
+
+/* CORREGIDO: Alineación flex para que se comporte como fila en PC */
+.producto-card-carrito {
+    background: white;
+    padding: 15px 20px;
+    border-radius: 8px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.producto-card-carrito img { 
+    width: 80px; 
+    height: 80px; 
+    object-fit: contain; 
+}
+
+.prod-nombre { 
+    font-size: 14px; 
+    color: #333; 
+    margin: 0 0 5px 0; 
+    font-weight: bold;
+}
+
+.prod-precio { 
+    font-size: 16px; 
+    color: #2d6f73; 
+    font-weight: bold; 
+}
+
+/* Controles de cantidad limpios */
+.controles-cantidad {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.controles-cantidad button {
+    border: 1px solid #ccc !important; 
+    background: #f8f9fa !important; 
+    padding: 5px 10px; 
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.controles-cantidad input { 
+    width: 35px; 
+    height: 28px;
+    border: 1px solid #ccc !important; 
+    text-align: center; 
+    background: white;
+    border-radius: 4px;
+    font-size: 13px;
+}
+
+/* Resumen inferior (Vista PC) */
+.resumen-flotante {
+    background: white;
+    margin-top: 30px;
+    padding: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #dce4e8;
+    border-radius: 8px;
+}
+
+.resumen-linea { 
+    display: flex; 
+    justify-content: space-between; 
+    gap: 40px; 
+    margin: 5px 0; 
+}
+
+.total-seccion { 
+    text-align: center; 
+    padding: 0 40px; 
+    border-left: 2px solid #ccc; 
+}
+
+.total-monto { 
+    display: block; 
+    font-size: 28px; 
+    font-weight: bold; 
+}
+
+.btn-continuar-compra {
+    background: #ffcc00;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 25px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.btn-continuar-compra:hover {
+    background: #e6b800;
+}
+
+/* Contenedor relativo para poder posicionar el punto de forma absoluta */
+.notificacion-contenedor {
+    position: relative;
+    display: inline-block;
+}
+
+/* El punto de notificación encima de la campana */
+.punto-notificacion {
+    position: absolute;
+    top: -2px;          /* Ajusta si quieres moverlo más arriba o abajo */
+    right: -2px;        /* Ajusta si quieres moverlo más a la izquierda o derecha */
+    width: 10px;        /* Tamaño del punto */
+    height: 10px;
+    background-color: #e74c3c; /* Color rojo de alerta */
+    border-radius: 50%; /* Lo hace un círculo perfecto */
+    border: 2px solid #2d6f73; /* Borde del mismo color del header para que resalte */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    pointer-events: none; /* Hace que no estorbe si el usuario intenta hacer clic justo ahí */
+}
+
+/* ==========================================================================
+   DISEÑO RESPONSIVO PARA CELULARES (Media Query < 480px)
+   ========================================================================== */
+@media screen and (max-width: 480px) {
+    .carrito-container {
+        padding: 0 10px;
+        margin: 15px auto;
+    }
+
+    /* Tarjeta compacta para pantallas pequeñas */
+    .producto-card-carrito {
+        padding: 10px !important;
+        gap: 10px !important;
+    }
+
+    .producto-card-carrito img {
+        width: 60px !important;
+        height: 60px !important;
+    }
+
+    .prod-nombre {
+        font-size: 12px !important;
+    }
+
+    .prod-precio {
+        font-size: 13px !important;
+    }
+
+    /* Botones y selector más chicos para que no empujen el contenedor */
+    .controles-cantidad button {
+        padding: 2px 6px !important;
+        font-size: 11px !important;
+    }
+
+    .controles-cantidad input {
+        width: 25px !important;
+        height: 22px !important;
+        font-size: 11px !important;
+    }
+
+    .btn-eliminar {
+        font-size: 14px !important;
+        margin-left: 5px !important;
+    }
+
+    /* REORGANIZACIÓN DEL RESUMEN FLOTANTE */
+    .resumen-flotante {
+        display: flex;
+        flex-direction: column; /* Cambia a flujo vertical */
+        width: 100%;
+        box-sizing: border-box;
+        padding: 15px !important;
+        margin-top: 20px;
+    }
+
+    /* 1. Detalles (Productos y envíos) arriba */
+    .resumen-detalle {
+        order: 1; 
+        width: 100%;
+        margin-bottom: 15px;
+    }
+
+    .resumen-linea {
+        font-size: 13px;
+        gap: 10px;
+    }
+
+    /* 2. Total en el medio */
+    .total-seccion {
+        order: 2;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-left: none; /* Quitamos la línea vertical divisoria de PC */
+        border-top: 1px solid #eee; /* Ponemos una horizontal */
+        padding: 10px 0 !important;
+        margin-bottom: 15px;
+    }
+
+    .total-seccion span:first-child {
+        font-size: 14px;
+        font-weight: bold;
+        color: #333;
+    }
+
+    .total-monto {
+        font-size: 18px !important;
+        display: inline-block;
+    }
+
+    /* 3. Botón Continuar abajo de todo */
+    .btn-continuar-compra {
+        order: 3;
+        width: 100% !important;
+        padding: 12px !important;
+        font-size: 14px !important;
+        border-radius: 8px; /* Un poco más cuadrado en móvil se ve más moderno */
+    }
+}

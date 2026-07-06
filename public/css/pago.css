@@ -1,0 +1,194 @@
+/* Configuración de página */
+body {
+    background-color: #f5f5f5;
+    font-family: Arial, sans-serif;
+    margin: 0;
+}
+
+.pago-container {
+    max-width: 1100px;
+    margin: 30px auto;
+    display: flex;
+    gap: 20px;
+    padding: 0 20px;
+}
+
+.seccion-entrega { flex: 2; }
+.titulo-seccion { font-size: 20px; margin-bottom: 20px; color: #333; }
+
+/* Tarjeta de Dirección */
+.opcion-envio {
+    background: white;
+    padding: 25px;
+    border-radius: 8px;
+    display: flex;
+    gap: 15px;
+    border: 1px solid #e6e6e6;
+}
+
+.info-direccion { width: 100%; }
+.header-envio { display: flex; justify-content: space-between; margin-bottom: 5px; }
+.metodo { font-weight: bold; font-size: 16px; }
+.costo-gratis { color: #00a650; font-weight: bold; }
+
+#display-direccion { margin: 10px 0 2px; font-weight: bold; font-size: 14px; }
+#display-descripcion { margin: 0 0 15px; font-size: 13px; color: #666; }
+
+.modificar { color: #3483fa; text-decoration: none; font-size: 14px; font-weight: 500; }
+
+/* Resumen de Compra */
+.resumen-card {
+    background: white;
+    padding: 25px;
+    border-radius: 8px;
+    border: 1px solid #e6e6e6;
+    min-width: 320px;
+}
+
+.resumen-fila { display: flex; justify-content: space-between; margin: 15px 0; font-size: 15px; }
+.total { font-size: 18px; font-weight: bold; margin-top: 20px; }
+.separador { border: 0; border-top: 1px solid #eee; margin: 15px 0; }
+
+.btn-continuar {
+    width: 100%; background: #3483fa; color: white; border: none;
+    padding: 15px; border-radius: 6px; font-size: 16px; font-weight: bold;
+    cursor: pointer; transition: 0.2s;
+}
+.btn-continuar:hover { background: #2968c8; }
+
+/* MODAL ESTILOS (Aquí estaba el fallo anterior) */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.6);
+    z-index: 2000;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    width: 400px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+.form-group { margin-bottom: 15px; display: flex; flex-direction: column; }
+.form-group label { font-size: 14px; margin-bottom: 5px; font-weight: bold; }
+.form-group input, .form-group textarea {
+    padding: 10px; border: 1px solid #ccc; border-radius: 6px; font-family: inherit;
+}
+
+.modal-botones { display: flex; justify-content: flex-end; gap: 10px; margin-top: 20px; }
+.btn-cancelar { background: #eee; border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer; }
+.btn-guardar { background: #3483fa; color: white; border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer; }
+
+/* correspondiente a celular */
+@media (max-width: 768px) {
+    .pago-container {
+        flex-direction: column; /* Cambia de horizontal a vertical */
+        margin: 10px auto;
+        padding: 0 15px;
+        gap: 15px;
+    }
+
+    .seccion-entrega, .resumen-compra {
+        width: 100%; 
+    }
+
+    .resumen-compra {
+        order: 2; 
+    }
+
+    .seccion-entrega {
+        order: 1; 
+    }
+
+    /* Ajuste del modal*/
+    .modal-content {
+        width: 85%;
+        margin: 20% auto;
+        padding: 20px;
+    }
+
+    .top-header-inner {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+}
+
+/*cuadro de aleta notificacion (campana) */
+
+.notificaciones-panel {
+    display: none;
+    position: absolute;
+    top: 80px;
+    right: 20px;
+    width: 280px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+    z-index: 999;
+    overflow: hidden;
+}
+
+.notificaciones-panel.activo {
+    display: block;
+}
+
+.notificaciones-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 16px;
+    background-color: #3a8e93;
+    color: white;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.notificaciones-header button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.notificaciones-body {
+    padding: 20px 16px;
+    color: #555;
+    font-size: 14px;
+    text-align: center;
+}
+
+header {
+    position: relative;
+}
+
+/* carrito alerta*/
+.carrito-panel {
+    display: none;
+    position: absolute;
+    top: 80px;
+    right: 20px;
+    width: 280px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+    z-index: 999;
+    overflow: hidden;
+}
+
+.carrito-panel.activo {
+    display: block;
+}
+
+.notificaciones-body {
+    max-height: 100%; 
+    overflow-y: auto;
+}
